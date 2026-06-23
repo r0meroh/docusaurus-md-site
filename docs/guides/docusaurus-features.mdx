@@ -1,0 +1,251 @@
+---
+id: docusaurus-features
+title: Docusaurus-Exclusive Features
+sidebar_position: 4
+description: MDX, Admonitions, Tabs, code block enhancements, versioning, and more — features unique to Docusaurus.
+last_update:
+  date: 2026-06-23
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Docusaurus-Exclusive Features
+
+This page showcases features that are **unique to Docusaurus** and not available in a standard Jekyll + Just the Docs setup.
+
+---
+
+## 1. Admonitions
+
+Docusaurus has built-in admonition blocks with five types. No custom CSS or kramdown attribute syntax needed.
+
+:::note
+This is a **note** — additional context that is helpful but not essential.
+:::
+
+:::tip
+This is a **tip** — a shortcut or best practice worth calling out.
+:::
+
+:::info
+This is **info** — informational context about a feature or behavior.
+:::
+
+:::warning
+This is a **warning** — something the reader should be careful about.
+:::
+
+:::danger
+This is a **danger** callout — an action that could cause data loss or breakage.
+:::
+
+**Syntax:**
+
+```md
+:::note
+Your note content here.
+:::
+
+:::tip My Custom Title
+You can override the title too.
+:::
+```
+
+---
+
+## 2. Tabs
+
+Use the `<Tabs>` component to show platform-specific or option-specific content side by side.
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install
+npm start
+npm run build
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="Yarn">
+
+```bash
+yarn install
+yarn start
+yarn build
+```
+
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm install
+pnpm start
+pnpm build
+```
+
+  </TabItem>
+</Tabs>
+
+The `groupId` prop **syncs tabs across the page** — switching to "Yarn" above switches all Tabs blocks with the same `groupId` simultaneously. This preference is also **persisted in localStorage** across page navigations.
+
+**Syntax (in `.mdx` files):**
+
+```mdx
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    npm install
+  </TabItem>
+  <TabItem value="yarn" label="Yarn">
+    yarn install
+  </TabItem>
+</Tabs>
+```
+
+---
+
+## 3. Code Block Enhancements
+
+### Line Highlighting
+
+Highlight specific lines to draw attention:
+
+```js title="docusaurus.config.ts"
+const config = {
+  title: 'DocHub',
+  // highlight-next-line
+  url: 'https://r0meroh.github.io',
+  // highlight-start
+  baseUrl: '/docusaurus-md-site/',
+  organizationName: 'r0meroh',
+  // highlight-end
+};
+```
+
+### File Titles
+
+Add a `title` attribute to show the filename above the code block:
+
+````md
+```yaml title="_config.yml"
+title: My Site
+```
+````
+
+### Show Line Numbers
+
+````md
+```js showLineNumbers
+const a = 1;
+const b = 2;
+```
+````
+
+### Diff Blocks
+
+````md
+```diff
+- const old = true;
++ const updated = true;
+```
+````
+
+All code blocks also include a **copy button** automatically — no plugin or custom JS required.
+
+---
+
+## 4. MDX — React Components in Markdown
+
+`.mdx` files let you embed React components directly in your docs. This page itself is an `.mdx` file.
+
+```mdx
+import MyChart from '@site/src/components/MyChart';
+
+## Performance
+
+<MyChart data={performanceData} />
+```
+
+Use cases:
+- Interactive demos embedded in docs
+- Live code playgrounds
+- Data-driven tables from JSON
+- Custom callout components
+
+---
+
+## 5. Built-in Dark Mode
+
+Docusaurus ships with a dark/light mode toggle in the navbar. It:
+- Respects the user's OS preference (`prefers-color-scheme`) by default
+- Persists the choice in `localStorage`
+- Is fully customizable via CSS variables in `src/css/custom.css`
+
+No plugin or custom CSS hack required — it works out of the box.
+
+---
+
+## 6. Doc Versioning
+
+Docusaurus has a first-class versioning system for documenting multiple releases of a product simultaneously.
+
+```bash
+# Snapshot the current docs as version 1.0
+npm run docusaurus docs:version 1.0
+```
+
+This creates `versioned_docs/version-1.0/` and a version dropdown appears in the navbar automatically. Users can switch between versions.
+
+Jekyll has no equivalent — versioning requires maintaining separate branches or folders manually.
+
+---
+
+## 7. Automatic Last Updated Metadata
+
+Enable per-page "Last updated by / on" metadata with a single config option:
+
+```ts title="docusaurus.config.ts"
+docs: {
+  showLastUpdateTime: true,
+  showLastUpdateAuthor: true,
+}
+```
+
+Docusaurus reads this from **Git commit history** automatically — no `last_modified_date` front matter key to remember to update.
+
+---
+
+## 8. TypeScript Configuration
+
+`docusaurus.config.ts` is a first-class TypeScript file. You get:
+- Full autocomplete for all config options
+- Type errors if you mistype a key
+- Import other TypeScript modules from config
+
+```ts
+import type { Config } from '@docusaurus/types';
+
+const config: Config = {
+  // ← IDE gives you autocomplete and type errors here
+};
+```
+
+---
+
+## 9. Component Swizzling
+
+Docusaurus lets you **replace or wrap** any built-in theme component with your own React implementation:
+
+```bash
+# Wrap the Footer component (safer — keeps upgradability)
+npm run swizzle @docusaurus/theme-classic Footer -- --wrap
+
+# Eject a full copy (full control, loses auto-upgrades)
+npm run swizzle @docusaurus/theme-classic Navbar -- --eject
+```
+
+This is far more powerful than Jekyll's `_includes/` override system.

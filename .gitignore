@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production builds
+build/
+.docusaurus/
+
+# Generated files
+.cache/
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Editor
+.vscode/
+.idea/
