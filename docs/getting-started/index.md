@@ -12,9 +12,9 @@ This section walks you through everything you need to go from zero to a live doc
 
 ## What You'll Learn
 
-- [Installation](./installation) — Install Node.js and scaffold the site locally
-- [Quick Start](./quick-start) — Run the dev server and preview your changes
-- [Project Structure](./project-structure) — Understand what every file and folder does
+- [Installation](./installation.md) — Install Node.js and scaffold the site locally
+- [Quick Start](./quick-start.md) — Run the dev server and preview your changes
+- [Project Structure](./project-structure.md) — Understand what every file and folder does
 
 ## Prerequisites
 

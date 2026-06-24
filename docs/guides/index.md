@@ -12,9 +12,9 @@ Practical walkthroughs for the most common documentation tasks.
 
 ## In This Section
 
-- [Creating Pages](./creating-pages) — Add new Markdown or MDX pages to any section
-- [Linking Between Pages](./linking-pages) — Cross-link pages using relative paths
-- [Docusaurus Features](./docusaurus-features) — MDX, Admonitions, Tabs, Code highlights, and more
+- [Creating Pages](./creating-pages.md) — Add new Markdown or MDX pages to any section
+- [Linking Between Pages](./linking-pages.md) — Cross-link pages using relative paths
+- [Docusaurus Features](./docusaurus-features.mdx) — MDX, Admonitions, Tabs, Code highlights, and more
 
 ## The Golden Rule
 
