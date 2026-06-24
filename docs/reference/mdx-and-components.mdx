@@ -1,0 +1,192 @@
+---
+id: mdx-and-components
+title: MDX & Built-in Components
+sidebar_position: 3
+description: Reference for all built-in Docusaurus MDX components — Tabs, Admonitions, Details, and more.
+last_update:
+  date: 2026-06-23
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# MDX & Built-in Components
+
+Docusaurus supports **MDX** — Markdown with embedded JSX. You can use React components directly in `.mdx` files.
+
+---
+
+## Admonitions
+
+Five built-in admonition types. No import needed — they work in `.md` and `.mdx` files.
+
+| Syntax | Use for |
+|---|---|
+| `:::note` | Neutral context, extra detail |
+| `:::tip` | Best practices, shortcuts |
+| `:::info` | Feature context, background |
+| `:::warning` | Caution — likely consequences |
+| `:::danger` | Destructive or irreversible actions |
+
+```md
+:::warning Backup first
+Always back up your data before running migrations.
+:::
+```
+
+:::warning Backup first
+Always back up your data before running migrations.
+:::
+
+---
+
+## Tabs
+
+All `import` declarations must be at the top of the file (or inline in `.mdx`).
+
+```mdx
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="js" label="JavaScript" default>
+    const x = 1;
+  </TabItem>
+  <TabItem value="ts" label="TypeScript">
+    const x: number = 1;
+  </TabItem>
+</Tabs>
+```
+
+<Tabs>
+  <TabItem value="js" label="JavaScript" default>
+
+```js
+const x = 1;
+```
+
+  </TabItem>
+  <TabItem value="ts" label="TypeScript">
+
+```ts
+const x: number = 1;
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Details (Collapsible)
+
+The `<details>` HTML element works natively:
+
+```md
+<details>
+  <summary>Click to expand</summary>
+
+  Hidden content shown on expand.
+
+</details>
+```
+
+<details>
+  <summary>Click to expand</summary>
+
+  Hidden content shown on expand. This can contain **Markdown** too.
+
+</details>
+
+---
+
+## Code Blocks — Full Reference
+
+### Basic
+
+````md
+```language
+code here
+```
+````
+
+### With Title
+
+````md
+```bash title="Install dependencies"
+npm install
+```
+````
+
+### With Line Numbers
+
+````md
+```js showLineNumbers
+const a = 1;
+const b = 2;
+```
+````
+
+### With Line Highlighting
+
+````md
+```ts
+const config = {
+  // highlight-next-line
+  title: 'DocHub',
+  url: 'https://r0meroh.github.io',
+  // highlight-start
+  baseUrl: '/docusaurus-md-site/',
+  // highlight-end
+};
+```
+````
+
+### Supported Languages
+
+Docusaurus uses [Prism](https://prismjs.com/) for highlighting. Common language tags:
+
+`bash` · `sh` · `yaml` · `json` · `ts` · `tsx` · `js` · `jsx` · `python` · `ruby` · `go` · `rust` · `sql` · `html` · `css` · `diff` · `markdown`
+
+Add more in `docusaurus.config.ts`:
+
+```ts
+prism: {
+  additionalLanguages: ['ruby', 'rust', 'php'],
+}
+```
+
+---
+
+## Custom React Components in MDX
+
+Create a component in `src/components/` and import it:
+
+```tsx title="src/components/VersionBadge.tsx"
+export default function VersionBadge({ version }: { version: string }) {
+  return (
+    <span style={{ background: '#2e6da4', color: '#fff', padding: '2px 8px', borderRadius: 4 }}>
+      v{version}
+    </span>
+  );
+}
+```
+
+Then use it in any `.mdx` file:
+
+```mdx
+import VersionBadge from '@site/src/components/VersionBadge';
+
+This feature was added in <VersionBadge version="3.0" />.
+```
+
+---
+
+## MDX Global Scope
+
+The following are available in all MDX files without importing:
+
+| Symbol | Type | Purpose |
+|---|---|---|
+| `MDXComponents` | object | Component map for custom element rendering |
+
+For components needed on every page, register them in `src/theme/MDXComponents.tsx` via [component swizzling](https://docusaurus.io/docs/swizzling).

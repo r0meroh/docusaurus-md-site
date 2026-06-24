@@ -1,0 +1,70 @@
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+.featureCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 0.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.featureCard:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.featureEmoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.comparison {
+  padding: 3rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.comparison table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison th {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.comparison td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.comparison tr:nth-child(even) td {
+  background: var(--ifm-background-color);
+}

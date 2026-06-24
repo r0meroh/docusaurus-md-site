@@ -1,0 +1,128 @@
+/**
+ * DocHub — Docusaurus custom theme overrides
+ * CSS variables map to Docusaurus's Infima design system.
+ */
+
+:root {
+  --ifm-color-primary: #2e6da4;
+  --ifm-color-primary-dark: #296193;
+  --ifm-color-primary-darker: #275b8b;
+  --ifm-color-primary-darkest: #204b72;
+  --ifm-color-primary-light: #3379b5;
+  --ifm-color-primary-lighter: #357fbd;
+  --ifm-color-primary-lightest: #4a91c9;
+
+  --ifm-code-font-size: 90%;
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-navbar-height: 60px;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #6badde;
+  --ifm-color-primary-dark: #52a1d9;
+  --ifm-color-primary-darker: #469bd6;
+  --ifm-color-primary-darkest: #2486c8;
+  --ifm-color-primary-light: #84b9e3;
+  --ifm-color-primary-lighter: #90bfe6;
+  --ifm-color-primary-lightest: #b3d3ee;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* ── Homepage hero ───────────────────────────────────────────── */
+.hero--primary {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2e6da4 100%);
+}
+
+.hero--primary .hero__title,
+.hero--primary .hero__subtitle {
+  color: #ffffff;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* ── Feature cards ───────────────────────────────────────────── */
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+/* ── Sidebar tweaks ──────────────────────────────────────────── */
+.menu__link--active {
+  font-weight: 600;
+}
+
+/* ── Code blocks ─────────────────────────────────────────────── */
+.codeBlockContainer_node_modules {
+  border-radius: 8px;
+}
+
+/* ── Admonition enhancements ─────────────────────────────────── */
+.admonition {
+  border-radius: 8px;
+}
+
+/* ── Navbar text color in dark mode ─────────────────────────── */
+[data-theme='dark'] .navbar__item {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .navbar__link {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* ── Navbar item icons ───────────────────────────────────────── */
+.navbar-item-icon {
+  height: 48px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -1px;
+  border-radius: 6px;
+}
+
+[data-theme='dark'] .navbar-item-icon {
+  background: #1e3a5f;
+  padding: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* ── Navbar logo size + background badge ─────────────────────── */
+.navbar__logo {
+  height: 48px;
+}
+
+.navbar__logo img {
+  height: 100%;
+  width: auto;
+  border-radius: 6px;
+}
+
+[data-theme='dark'] .navbar__logo img {
+  background: #1e3a5f;
+  padding: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
