@@ -18,7 +18,7 @@ Fork / branch → Edit / create files → Commit → Push → Open PR → Review
 
 ## In This Section
 
-- [Style Guide](./style-guide) — Voice, tone, formatting conventions
+- [Style Guide](./style-guide.md) — Voice, tone, formatting conventions
 
 ## Quick Contribution Checklist
 
