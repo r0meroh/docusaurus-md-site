@@ -18,8 +18,8 @@ import type { Config } from '@docusaurus/types';
 
 const config: Config = {
   title: 'My Site',
-  url: 'https://myorg.github.io',
-  baseUrl: '/my-repo/',
+  url: 'https://r0meroh.github.io',
+  baseUrl: '/docusaurus-md-site/',
 };
 
 export default config;
